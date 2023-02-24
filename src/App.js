@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import { EmailAuthProvider, getAuth } from 'firebase/auth';
+import app from './Firebase/firebase.init';
+
+const auth = getAuth(app);
+
+const handleRegister = (event) => {
+  event.preventDefault();
+  const email = event.target.email.value;
+  const password = event.target.password.value;
+  console.log(email, password);
+}
+
+const handleEmailBlur = (event) => {
+  console.log(event.target.value);
+}
+
+const handlePasswordBlur = (event) => {
+  console.log(event.target.value);
+}
+
 
 function App() {
+  const emailProvider = new EmailAuthProvider();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleRegister}>
+        <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Your Email' />
+        <br />
+        <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Your Password' />
+        <br />
+        <button type="submit">Register</button>
+      </form>
     </div>
   );
 }
