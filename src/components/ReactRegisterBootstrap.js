@@ -24,12 +24,15 @@ const ReactRegisterBootstrap = () => {
         // validating password
         if (!/(?=(.*[A-Z]){2,})/.test(password)) {
             setPasswordError('Password should be at least two uppercase');
+            return;
         }
         if (!/(?=.*[!£$%&@#])/.test(password)) {
             setPasswordError('Password should be at least one special character');
+            return;
         }
         if (password.length > 6) {
             setPasswordError('Password length should be 8 character');
+            return;
         }
         setPasswordError('');
 

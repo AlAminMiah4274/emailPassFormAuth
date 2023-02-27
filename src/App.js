@@ -12,7 +12,7 @@ function App() {
       element: <Main></Main>,
       children: [
         {
-          path: '/register',
+          path: '/',
           element: <ReactRegisterBootstrap></ReactRegisterBootstrap>
         },
         {

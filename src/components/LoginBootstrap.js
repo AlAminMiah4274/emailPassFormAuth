@@ -62,7 +62,7 @@ const LoginBootstrap = () => {
                     <input type="password" name='password' className="form-control" id="exampleInputPassword1" placeholder='Password' required />
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
-                <p><small>New to this website? Please <Link to='/register'>Register</Link></small></p>
+                <p><small>New to this website? Please <Link to='/'>Register</Link></small></p>
                 {success && <p className='text-success'>Successfuly log in to the account</p>}
                 <p><small>Forgot password? <button onClick={handleForgetPassword} type="button" className="btn btn-link">Reset password</button></small></p>
             </form>
