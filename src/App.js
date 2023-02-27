@@ -1,20 +1,31 @@
 import './App.css';
-import { EmailAuthProvider, getAuth } from 'firebase/auth';
-import app from './Firebase/firebase.init';
-import Register from './components/Register';
 import ReactRegisterBootstrap from './components/ReactRegisterBootstrap';
-import RegisterBootstrap from './components/RegisterBootstrap';
+import LoginBootstrap from './components/LoginBootstrap';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Main from './layout/Main';
 
-const auth = getAuth(app);
 
 function App() {
-  const emailProvider = new EmailAuthProvider();
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Main></Main>,
+      children: [
+        {
+          path: '/register',
+          element: <ReactRegisterBootstrap></ReactRegisterBootstrap>
+        },
+        {
+          path: '/login',
+          element: <LoginBootstrap></LoginBootstrap>
+        }
+      ]
+    }
+  ]);
 
   return (
     <div className="">
-      <Register></Register>
-      <ReactRegisterBootstrap></ReactRegisterBootstrap>
-      <RegisterBootstrap></RegisterBootstrap>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
